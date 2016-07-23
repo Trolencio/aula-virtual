@@ -1,0 +1,371 @@
+.tabGroup {
+    font: 16pt arial, verdana;
+    width: 830px;
+	margin-left: 20px;
+	overflow: hidden;
+}
+ 
+/* Configure the radio buttons to hide off screen */
+.tabGroup > input[type="radio"] {
+    position: absolute;
+    left:-100px;
+}
+ 
+ /* SE CAMBIÓ width: 80px; POR width: 180px; PARA AUMENTAR EL ANCHO DE LAS ETIQUETAS*/
+/* Configure maximum width of tabs and align to top */
+.tabGroup > div.tablabels {
+    display: inline-block;
+    vertical-align: top;
+    width: 180px;
+    margin-right:-19px; /* MARGEN DERECHO ETIQUETA ACTIVO */
+background: linear-gradient(#3D4246,#24282B);
+border-radius: 4px;
+border: 1px solid black;
+box-shadow: 1px 1px #17191C, 0 0 10px #323338;
+padding: 8px 0px 12px 8px;
+}
+ 
+/* Configure labels to look like tabs */
+ /* SE CAMBIÓ width:66px; POR width:166px; PARA AUMENTAR EL ANCHO DE LAS ETIQUETAS*/
+.tabGroup > div.tablabels > label {
+    /* inline-block such that the label can be given dimensions */
+    display: inline-block;
+    width:166px;
+   
+    /* A nice curved border around the tab */
+
+height: 46px;
+color: #0F1014;
+text-align: center;
+text-shadow: 0 1px #0F1014;
+background: linear-gradient(#44494F,#2F3237);
+border-radius: 3px;
+border-right: 1px solid #0F1014;
+border-bottom: 1px solid #0F1014;
+border-top: 1px solid #53575C;
+border-left: 1px solid #53575C;
+box-shadow: 1px 1px #17191C;
+cursor: pointer;
+font-size: 16px;
+background: #2A2D31;
+box-shadow: inset 0 0 5px 2px rgba(15, 16, 20, 0.5);
+border: 1px solid #0F1014;
+
+
+    /* Padding around tab text */
+    padding: 20px 0px 0px 0px;
+     
+    z-index:32767;
+}
+ 
+/* Focused tabs need to be highlighted as such */
+.tabGroup > input#rad1:focus ~ div.tablabels > label[for="rad1"],
+.tabGroup > input#rad2:focus ~ div.tablabels > label[for="rad2"],
+.tabGroup > input#rad3:focus ~ div.tablabels > label[for="rad3"] {
+    border:1px #D0FF00;
+}
+
+/* hovered tabs need to be highlighted as such */
+.tabGroup > input#rad1:hover ~ div.tablabels > label[for="rad1"],
+.tabGroup > input#rad2:hover ~ div.tablabels > label[for="rad2"],
+.tabGroup > input#rad3:hover ~ div.tablabels > label[for="rad3"] {
+    text-shadow: 1px 1px 15px #A1A1A1;
+} 
+/* Checked tabs must be white with the bottom border removed */
+.tabGroup > input#rad1:checked ~ div.tablabels > label[for="rad1"],
+.tabGroup > input#rad2:checked ~ div.tablabels > label[for="rad2"],
+.tabGroup > input#rad3:checked ~ div.tablabels > label[for="rad3"] {
+    font-weight: bold;
+    border-right: 1px solid white;
+text-shadow: 0 1px #0F1014;
+background: linear-gradient(#44494F,#2F3237);
+border-radius: 3px;
+border-right: 1px solid #0F1014;
+border-bottom: 1px solid #0F1014;
+border-top: 1px solid #53575C;
+border-left: 1px solid #53575C;
+box-shadow:  -1px 1px 1px 1px #17191C;
+cursor: pointer;
+font-size: 18px; /* TAMAÑO DE LA LETRA DE ETIQUETAS ACTIVAS*/
+color:#666666
+}
+
+/* SE CAMBIÓ 720 POR 620 PARA DISMIUIR EL ANCHO DE LOS TABS */
+.tabGroup > div.btabcontent{
+display: inline-block;
+
+width: 620px;
+border: 1px solid black;
+background-color: white;
+padding: 10px 10px;
+height: 500px; /* ALTO DEL TAB (EL QUE ESTÁ ATRÁS) */
+overflow: auto;
+background: linear-gradient(#3D4246,#24282B);
+box-shadow: 0 0 20px #444;
+-moz-box-shadow: 0 0 20px #444;
+-webkit-box-shadow: 0 0 20px #444;
+border-radius: 0 5px 5px 5px;
+-moz-border-radius: 0 5px 5px 5px;
+-webkit-border-radius: 0 5px 5px 5px;
+}
+
+
+ 
+.tabGroup > div.tabcontent {
+    display: inline-block;
+    height: 498px; /* ALTO DEL TAB ACTIVO */
+}
+ 
+
+/* SE CAMBIÓ 718 POR 618 */
+/* The tab content must fill the widgets size and have a nice border */
+/* SE CAMBIÓ margin-left:  78px; POR margin-left:  178px; PARA UBICAR EL TAB ACTIVO*/
+.tabGroup > div.tabcontent > div {
+    width:618px;
+	margin-top: -524px; /*ESTABLECE POSICIÓN VERTICAL DEL TAB ACTIVO */
+margin-left:  178px; /* POSICION IZQUIERDA DEL PANEL ACTIVO*/
+    display: none;
+    background-color: white;
+    padding: 10px 10px;
+    height: 100%;
+    overflow: auto;
+    background: linear-gradient(#3D4246,#24282B); 
+    border-radius: 0 5px 5px 5px;
+    -moz-border-radius: 0 5px 5px 5px;
+    -webkit-border-radius: 0 5px 5px 5px;
+-webkit-animation-duration: 1s;
+-moz-animation-duration: 1s;
+-ms-animation-duration: 1s;
+-o-animation-duration: 1s;
+animation-duration: 1s;
+	-webkit-animation-name: slideInRight;
+	-moz-animation-name: slideInRight;
+	-o-animation-name: slideInRight;
+	animation-name: slideInRight;
+}
+ 
+/* This matchs tabs displaying to thier associated radio inputs */
+.tabGroup > .tab1:checked ~ div.tabcontent > .tab1,
+.tabGroup > .tab2:checked ~ div.tabcontent > .tab2,
+.tabGroup > .tab3:checked ~ div.tabcontent > .tab3 {
+    display: inline-block;
+	
+}
+
+
+@-webkit-keyframes slideInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(600px);
+    transform: translateX(600px);
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(600px);
+    -ms-transform: translateX(600px);
+    transform: translateX(600px);
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+.slideInRight {
+  -webkit-animation-name: slideInRight;
+  animation-name: slideInRight;
+}
+
+
+@keyframes slideInRight {
+	0% {
+		transform: translateX(600px);
+	}
+	
+	60% {
+		transform: translateX(-30px);
+	}
+	
+	80% {
+		transform: translateX(10px);
+	}
+	
+	100% {
+		transform: translateX(0);
+	}
+}
+
+
+.tabGroup > div.tabcontent > div > legend{
+    text-align:left;
+    background: linear-gradient(#111111,#222222);
+    color:#666;
+    font-size:24px; /* TAMAÑO DE LETRA DE LA ETIQUETA SUPERIOR DEL TAB ACTIVO */
+    text-shadow:1px 1px 1px #000;
+    font-weight:bold;
+    float:left;
+    width:590px;
+    padding:5px 10px 5px 10px;
+    margin:10px 5px; /* CENTRA EL ENCABEZADO DEL TAB ACTIVO */
+    border-bottom:1px solid #000;
+    border-top:1px solid #0000;
+	-webkit-box-shadow: 0px 0px 3px #aaa;
+box-shadow: 0px 0px 3px #aaa;
+}
+
+.tabGroup > div.tabcontent > div > .required_notification {
+color: #d45252;
+margin: 5px 0 0 0;
+display: inline;
+float: right;
+}
+.tabGroup > div.tabcontent > div > p{
+    float:left;
+    clear:both;
+    margin:5px 0px;
+    background: linear-gradient(#111111,#222222);
+    border:1px solid #000;
+    width:500px; /*ANCHO DEL BLOQUE DE TEXTO ACTIVO */
+    padding:10px;
+    margin-left:50px; /* MARGEN IZQUIERDO DEL BLOQUE DE TEXTO ACTIVO */
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow:0px 0px 3px #aaa;
+    -webkit-box-shadow:0px 0px 3px #aaa;
+    box-shadow:0px 0px 3px #aaa;
+}
+.tabGroup > div.tabcontent > div > p label{
+    width:160px;
+    float:left;
+    text-align:right;
+
+    line-height:26px;
+    color:#666;
+    text-shadow:1px 1px 1px #000;
+    font-weight:bold;
+	background: #111;
+-webkit-box-shadow: inset 0 1px 3px rgba(51,51,51,0.95);
+-moz-box-shadow: inset 0 1px 3px rgba(51,51,51,0.95);
+box-shadow: inset 0 1px 3px rgba(51,51,51,0.95);
+
+}
+.tabGroup > div.tabcontent > div > input:not([type=radio]),
+.tabGroup > div.tabcontent > div > textarea,
+.tabGroup > div.tabcontent > div > select{
+    background: #000;
+    border: 1px solid #ddd;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    outline: none;
+    padding: 5px;
+    width: 200px;
+    float:left;
+}
+.tabGroup > div.tabcontent > div > input:focus{
+    -moz-box-shadow:0px 0px 3px #aaa;
+    -webkit-box-shadow:0px 0px 3px #aaa;
+    box-shadow:0px 0px 3px #aaa;
+    background-color:#FFFEEF;
+}
+.tabGroup > div.tabcontent > div > p.submit{
+    background:none;
+    border:none;
+    -moz-box-shadow:none;
+    -webkit-box-shadow:none;
+    box-shadow:none;
+}
+.tabGroup > div.tabcontent > div > button {
+	border:none;
+	outline:none;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    color: #ffffff;
+    display: block;
+    cursor:pointer;
+    margin: 0px auto;
+    clear:both;
+    padding: 7px 25px;
+    text-shadow: 0 1px 1px #777;
+    font-weight:bold;
+    font-family:"Century Gothic", Helvetica, sans-serif;
+    font-size:24px;
+    -moz-box-shadow:0px 0px 3px #aaa;
+    -webkit-box-shadow:0px 0px 3px #aaa;
+    box-shadow:0px 0px 3px #aaa;
+    background:#4797ED;
+}
+
+
+.tabGroup > div.tabcontent > div > button:hover {
+    background:#d8d8d8;
+    color:#666;
+    text-shadow:1px 1px 1px #fff;
+}
+input {
+padding: 1px 0px;
+color:#000;
+outline: 0;
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #7E7E7E;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    #7E7E7E;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #7E7E7E;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    #7E7E7E;
+}
+
+/* === HTML5 validation styles === */	
+
+input, textarea {
+border: 1px solid #aaa;
+box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset;
+border-radius: 2px;
+padding-right: 30px;
+-moz-transition: padding .25s;
+-webkit-transition: padding .25s;
+-o-transition: padding .25s;
+transition: padding .25s;
+background: rgba(174,174,174,0.9);
+
+}
+
+
+
+input:required, textarea:required {
+	
+}
+input:required:valid, textarea:required:valid {
+	background: rgba(92,208,83,.3); 
+	box-shadow: 0 0 5px #5cd053;
+	border-color: #28921f;
+}
+input:focus:invalid,  textarea:focus:invalid {
+	background: rgba(212,82,82,.3); 
+	box-shadow: 0 0 5px #d45252;
+	border-color: #b03535;
+}
+input:focus:invalid, textarea:focus:invalid {
+background: rgba(176,53,53,.3);
+box-shadow: 0 0 5px #d45252;
+border-color: #b03535;
+
+  

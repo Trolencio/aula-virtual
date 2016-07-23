@@ -1,0 +1,21 @@
+
+    {% for tema in Temas %}
+        {% ifchanged tema.idMateria %}
+                <div style = " display: inline-block; ">inicia div oculto- {{ tema.idMateria }}
+                <div>       
+                    <h1>{{ tema.idMateria }}</h1>
+                    <h2>Material didactico para {{ tema.idMateria }} Sexto Grado</h2>
+                </div>
+        {% endifchanged %}
+                <div>
+                    <ul>    
+                        <li><a href="#"></a> {{ tema.idMateria }}{{ tema.descripcion }}</li>
+                    </ul>
+        {% ifchanged tema.idMateria %}
+        </div>fin-{{ tema.idMateria }} 
+        {% endifchanged %}
+                </div>
+
+    {% endfor %}
+
+   

@@ -1,0 +1,91 @@
+{% load staticfiles %}
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+<link rel="stylesheet" href="{% static 'css/side-menu.css' %}">
+<div id="layout" class="layout">
+    <div id="menu">
+        <div class="pure-menu">
+            <a class="pure-menu-heading " href="#">Clases</a>
+            <ul class="pure-menu-list">
+            {% for materia in Materias %}
+                <li onclick="verBloque('con-{{ materia.nombre }}');"><a href="{% url 'indiceTemasPorMateria' idEstaMateria=materia.nombre %}" class="pure-menu-link">{{ materia.nombre }}</a></li>
+            {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <div id="con-0" class="bloque-inactivo">
+        <div class="header">
+            <h1>Clases virtuales</h1>
+            <h2>Material didactico para complementar tus clases</h2>
+        </div>
+
+        <div class="content" >
+            <h2 class="content-subhead">Instrucciones</h2>
+            <p>
+                Para examinar los contenidos puedes navegar por las Materias 
+                disponibles en el menu a la izquierda. 
+            </p>
+            <p>
+                Cada Materia tiene una lista de Temas. Selecciona un Tema para 
+                visualizar el desarrollo del material Didáctico elaborado para ti. 
+            </p>
+            <p>
+                Este sitio esta estructurado en Materias, Temas y Actividades. 
+                El contenido en cada elemento de esta estructura es dinamico, o 
+                sea que puedes agregar, suprimir o modificar cada elemento de este sitio. 
+            </p>
+
+            <div class="pure-g">
+                <div class="pure-u-1-4">
+                    <img class="pure-img-responsive" src="http://us.123rf.com/450wm/designua/designua1210/designua121000005/15769109-virus-diagrama-de-una-estructura-de-cola-de-bacteri-fago-t-pico.jpg?ver=6" alt="Peyto Lake">
+                </div>
+                <div class="pure-u-1-4">
+                    <img class="pure-img-responsive" src="http://us.123rf.com/450wm/djapart/djapart1205/djapart120500172/13847677-port-til-prehist-rica-operativo-hombre-aislado-en-blanco.jpg?ver=6" alt="Peyto Lake">
+                </div>
+                <div class="pure-u-1-4">
+                    <img class="pure-img-responsive" src="http://us.123rf.com/450wm/timurock/timurock1411/timurock141100029/33970300-grupo-de-palabra-hola-color-de-burbujas-en-diferentes-idiomas.jpg?ver=6" alt="Peyto Lake">
+                </div>
+                <div class="pure-u-1-4">
+                    <img class="pure-img-responsive" src="http://us.123rf.com/450wm/dbraphael/dbraphael0801/dbraphael080100009/2441911-cien-numeros-mas-de-un-centenar-de.jpg" alt="Peyto Lake">
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+
+    {% for tema in Temas %}          
+            <div>
+                <div class="header">       
+                    <h1>Tema: {{ tema.idMateria }}</h1>
+                    <h2>Material didactico para {{ tema.idMateria }} Sexto Grado</h2>
+                </div>
+                <div class="content" >
+                    <h2 class="content-subhead">Lista de Temas</h2>
+                    <ul class="">   
+                        <li><a href="#"></a>{{ tema.idMateria }}{{ tema.descripcion }}</li>
+                    </ul>
+                </div>
+            </div>
+    {% endfor %}
+
+
+</div>
+
+
+<script type="text/javascript">
+
+var itemActivo = "con-0";
+document.getElementById(itemActivo).className = 'bloque-activo'; 
+    
+    function verBloque(bloque){
+       if (itemActivo != bloque) {
+            document.getElementById(itemActivo).className = 'bloque-inactivo';
+            itemActivo =  bloque; 
+            document.getElementById(itemActivo).className = 'bloque-activo'; 
+        }
+    }
+
+</script>
+</body>
+</html>

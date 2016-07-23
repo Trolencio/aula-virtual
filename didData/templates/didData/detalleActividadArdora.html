@@ -1,0 +1,29 @@
+    {% extends 'didData/base.html' %}
+    {% load staticfiles %}
+    {% block content %}
+        <div class="header">
+            <h1>{{ ActividadDet.first.idActividad.nombre }}</h1><!-- Aqui debe ir el tipo de actividad-->
+        </div>
+        <div class="content">
+            <br>
+            <p style= "text-align:right;">Materia : {{ ActividadDet.first.idActividad.idTema.idMateria.descripcion }}</p>
+            <br>
+            <p style= "text-align:right;">Tema : {{ ActividadDet.first.idActividad.idTema.nombre }}</p>
+
+        </div> 
+        
+        <div > <!-- Aqui va la lista de Actividades por Tema, luego el Tab -->
+            <div class="list-group">
+            {% for actividad in ActividadDet %}
+                
+                 <a class="list-group-item" href="{{ actividad.contenido }}">
+                 <i class="fa fa-mortar-board fa-fw" aria-hidden="true"></i>&nbsp; {{ actividad.nombre }}</a>
+            
+            {% endfor %}    
+            </div>
+            <div class="list-group">
+                <a class="list-group-item" href="/"><i class="fa fa-book fa-fw" aria-hidden="true"></i>&nbsp; Ayuda</a>
+                <a class="list-group-item" href="/admin"><i class="fa fa-cog fa-fw" aria-hidden="true"></i>&nbsp; Administrar</a>
+            </div>
+        </div>
+    {% endblock %}

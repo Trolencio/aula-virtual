@@ -1,0 +1,27 @@
+    {% extends 'didData/base.html' %}
+    {% load staticfiles %}
+    {% block content %}
+        <div class="header">
+            <h1>{{ Actividades.first.idTema.nombre }}</h1>
+            <h2>Actividades para {{ Actividades.first.idTema.nombre }}</h2><!-- Aqui debe ir el tipo de actividad-->
+        </div>
+        <div class="content">
+            <br>
+            <p style= "text-align:right;">Materia : {{ Actividades.first.idTema.idMateria.nombre }}</p>
+        </div> 
+        
+        <div > <!-- Aqui va la lista de Actividades por Tema, luego el Tab -->
+            <div class="list-group">
+            {% for actividad in Actividades %}
+                {% with idActividad=actividad.identificacion %} 
+                 <a class="list-group-item" href="{% url 'didData.views.detalleActividadArdora' pk=idActividad %}">
+                 <i class="fa fa-mortar-board fa-fw" aria-hidden="true"></i>&nbsp;{{ actividad.identificacion }} -- {{ actividad.nombre }} --- Tipo : {{ actividad.idTipoActividad.nombre }}</a>
+                {% endwith %}
+            {% endfor %}    
+            </div>
+            <div class="list-group">
+                <a class="list-group-item" href="/"><i class="fa fa-book fa-fw" aria-hidden="true"></i>&nbsp; Ayuda</a>
+                <a class="list-group-item" href="/admin"><i class="fa fa-cog fa-fw" aria-hidden="true"></i>&nbsp; Administrar</a>
+            </div>
+        </div>
+    {% endblock %}

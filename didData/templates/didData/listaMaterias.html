@@ -1,0 +1,16 @@
+    {% for tema in Temas %}
+        {% ifchanged tema.idMateria %}
+        <div id ="con-{{ tema.idMateria }}" class = "bloque-inactivo">
+        <div class="header">
+            <h1>{{ tema.idMateria }}</h1>
+            <h2>Material didactico para {{ tema.idMateria }} Sexto Grado</h2>
+        </div>
+        <div class="content" >
+            <h2 class="content-subhead">Lista de Temas</h2>
+            <ul class="">
+        {% endifchanged %}    
+                <li><a href="#"></a>{{ tema.idMateria }}{{ tema.descripcion }}</li>
+            </ul>
+        </div>
+    </div>
+    {% endfor %}
