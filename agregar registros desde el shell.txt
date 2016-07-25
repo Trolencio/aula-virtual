@@ -1,0 +1,14 @@
+Agregar actividades al Tema 100 de tipo 1
+p = Actividad(idTema =100, idTipoActividad =1, identificacion=1001 ,nombre='Actividad de Repaso',descripcion='Actividad de Repaso', comentario=' ', activa=true)
+p.save()
+
+Agregar detalle de actividades a la actividad 1 del Tema 100 de tipo 1
+p = actividadDet(idActividad=1001, identificacion=10011 ,nombre='Caracterìsticas',descripcion='Caracteristicas', contenido=' ', mediaAsociado=' ', sonido=' ', imagen=' '. slider=' ',otroMedia=' '  ,activa=true)
+p.save()
+
+Agregar palabras clave a la actividad 1 del Tema 100 de tipo 1
+p = mediaInActividad(idActividad=1001, identificacion=10011 ,nombre='Caracterìsticas', palabra='procariontes',tipo=' ',titulo='definicion de procarionte', contenido=' ',  imagen=' ', path=' ',extension=' '  ,activa=true)
+p.save()
+
+http://celestia.albacete.org/imagenes/deriva/graficos/procario.jpg
+https://www.google.com/imgres?imgurl=http%3A%2F%2Fcelestia.albacete.org%2Fimagenes%2Fderiva%2Fgraficos%2Fprocario.jpg&imgrefurl=http%3A%2F%2Fcelestia.albacete.org%2Fcelestia%2Fderiva%2Fprecamb.htm&docid=Wx-z3t6QtYuC2M&tbnid=Jb7oYmvizRFqLM%3A&w=300&h=187&client=firefox-b&bih=657&biw=1366&ved=0ahUKEwj-ruyaxY7OAhVKSyYKHX5pBTYQMwgpKAgwCA&iact=mrc&uact=8

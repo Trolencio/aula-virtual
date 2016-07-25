@@ -1,10 +1,14 @@
 from django.shortcuts import redirect
+import os
+from django.core.files import File
 from .models import Materia
 from .models import Tema
 from .models import TipoActividad
 from .models import Actividad
 from .models import actividadDet
 from .models import mediaInActividad
+
+from .fileCreator import createFileVerticalTabs
 
 from .forms import temaForm
 from django.shortcuts import render, get_object_or_404
@@ -54,3 +58,16 @@ def detalleActividadArdora(request, pk):
     
     actividadArdoraDet = actividadesDet.select_related('idActividad')
     return render(request, 'didData/detalleActividadArdora.html', {'ActividadDet': actividadArdoraDet})
+
+def detalleActividadPython(request, pk):
+    estaactividad = get_object_or_404(Actividad, identificacion=pk) #objeto tipo Actividad identificacion = pk
+    #actividades toma la lista de actividades del tema var_idTema, con su objeto Tema relacionado
+    actividadesDet = actividadDet.objects.filter(idActividad=estaactividad.identificacion).order_by('identificacion')
+
+    #generar el archivo
+    nombrearchivo = createFileVerticalTabs(actividadesDet, pk)
+    
+    #Aqui seria un request del html generado
+    #return render(request, nombrearchivo, {'ActividadDet': actividadesDet})
+
+    return render(request, nombrearchivo)

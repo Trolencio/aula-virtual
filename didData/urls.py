@@ -6,6 +6,7 @@ urlpatterns = [
     url(r'^didData/nuevo/$', views.nuevoTema, name='nuevoTema'),
     url(r'^didData/(?P<pk>[0-9]+)/$', views.detalleTema),
     url(r'^didData/actividadDet/(?P<pk>[0-9]+)/$', views.detalleActividadArdora, name='detalleActividadArdora'),
+    url(r'^didData/actividadDetPy/(?P<pk>[0-9]+)/$', views.detalleActividadPython, name='detalleActividadPython'),    
 ]
 
 #Esta no fx

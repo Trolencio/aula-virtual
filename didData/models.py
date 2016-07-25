@@ -105,7 +105,7 @@ class mediaInActividad(models.Model):
     tipo = models.CharField(max_length=100) #Tipo de ToolTip
     titulo = models.TextField() #Titulo del texto contenido dentro del tooltip (cuando hay texto)
     contenido = models.TextField() #texto contenido dentro del tooltip (cuando hay texto)
-    imagen = models.CharField(max_length=100) #url completa para ubicar la imagen del tooltip    
+    imagen = models.CharField(max_length=200) #url completa para ubicar la imagen del tooltip    
     path = models.CharField(max_length=200) #ubicacion del recurso si aplica
     extension = models.CharField(max_length=10) #extension del recurso si aplica
     activa = models.BooleanField() #siempre
