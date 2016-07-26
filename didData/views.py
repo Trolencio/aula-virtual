@@ -64,8 +64,11 @@ def detalleActividadPython(request, pk):
     #actividades toma la lista de actividades del tema var_idTema, con su objeto Tema relacionado
     actividadesDet = actividadDet.objects.filter(idActividad=estaactividad.identificacion).order_by('identificacion')
 
-    #generar el archivo
+    #generar el archivo local
     nombrearchivo = createFileVerticalTabs(actividadesDet, pk)
+    
+    #generar el archivo en aula-virtual
+    #    '/home/trolencio/aula-virtual/didData/templates/didData/generado/generadoTab_'
     
     #Aqui seria un request del html generado
     #return render(request, nombrearchivo, {'ActividadDet': actividadesDet})
