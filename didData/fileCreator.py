@@ -197,8 +197,10 @@ def generarDetalle(vidActividad, vcontenido):
 
 def getNewTabFileName(idActividad):
     fileName = 'generadoTab' + "_" + str(idActividad) + '.html'
-    
+    #revisar esto
     fullfileName = os.path.join(os.path.abspath('didData/templates/didData/generado'), fileName)
+    #fullfileName = "didData/static/" + fileName
+
     
     return fullfileName
 

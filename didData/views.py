@@ -70,4 +70,4 @@ def detalleActividadPython(request, pk):
     #Aqui seria un request del html generado
     #return render(request, nombrearchivo, {'ActividadDet': actividadesDet})
 
-    return render(request, nombrearchivo)
+    return render(request, 'didData/generado/generadoTab_' + str(pk) + '.html')
