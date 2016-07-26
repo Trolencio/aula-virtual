@@ -200,7 +200,7 @@ def getNewTabFileName(idActividad):
     #revisar esto
     fullfileName = os.path.join(os.path.abspath('didData/templates/didData/generado'), fileName)
     #fullfileName = "didData/static/" + fileName
-    #fullfileName = 'generado/generadoTab_' + str(idActividad) + '.html'
+    #fullfileName = 'didData/generado/generadoTab_' + str(idActividad) + '.html'
 
     
     return fullfileName
