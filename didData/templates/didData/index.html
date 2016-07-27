@@ -25,7 +25,7 @@
 
     <div id="con-0" class="bloque-inactivo">
         <div class="header">
-            <h1>Clases virtuales</h1>
+            <h1>Aula virtual</h1>
             <h2>Material didactico para complementar tus clases</h2>
         </div>
 
@@ -82,7 +82,7 @@
 
             {% for item in Materia.list %}        
               <!-- item toma todos los atributos de Tema: identificacion, nombre, descripcion... -->
-              <a class="list-group-item" href="{% url 'didData.views.detalleTema' pk=item.identificacion %}">
+              <a class="list-group-item" href="{% url 'didData.views.detalleTema' pk=item.id %}">
               <i class="fa fa-flag fa-fw" aria-hidden="true"></i>&nbsp; {{ item.identificacion }} - {{ item.nombre }}</a>
    
             {% endfor %}

@@ -1,0 +1,37 @@
+//Creado con Ardora - www.webardora.net
+//bajo licencia Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)
+//para otros usos contacte con el autor
+var timeAct=360; timeIni=360; timeBon=0;
+var successes=0; successesMax=35; attempts=0; attemptsMax=1;
+var score=0; scoreMax=35; scoreInc=1; scoreDec=1
+var typeGame=0;
+var tiTime=false;
+var tiTimeType=0;
+var tiButtonTime=false;
+var textButtonTime="Comenzar";
+var tiSuccesses=true;
+var tiAttempts=false;
+var tiScore=true;
+var startTime;
+var colorBack="#FFFDFD"; colorButton="#91962F"; colorText="#000000"; colorSele="#FF8000";
+var goURLNext=false; goURLRepeat=false;tiAval=false;
+var scoOk=0; scoWrong=0; scoOkDo=0; scoWrongDo=0; scoMessage=""; scoPtos=10;
+var fMenssage="Verdana, Geneva, sans-serif";
+var fActi="Verdana, Geneva, sans-serif";
+var fEnun="Verdana, Geneva, sans-serif";
+var timeOnMessage=2; messageOk="Fin"; messageTime=""; messageError="Error"; messageAttempts=""; isShowMessage=false;
+var urlOk=""; urlTime=""; urlError=""; urlAttempts="";
+var goURLOk="_blank"; goURLTime="_blank"; goURLAttempts="_blank"; goURLError="_blank"; 
+var consolidateSuccess=0; var consolidateScore=0;
+borderOk="#008000"; borderTime="#FF0000";borderError="#FF0000"; borderAttempts="#FF0000";
+var indexTXT=0; var txtC=['<img class="imaLeft" src="Egipto04_resources/media/PiramidesEgipto.jpg" alt="Ima"  align="left"><p>LEGADO CULTURAL DE Egipto:  </p><p>  </p><p> Arquitectura(el más destacado) se construyeron estructuras <input type="text" name="item1" id="item1" class="ardoraDropInput" readonly> como templos dedicados a los <input type="text" name="item2" id="item2" class="ardoraDropInput" readonly>, <input type="text" name="item3" id="item3" class="ardoraDropInput" readonly> y obeliscos. Estas <input type="text" name="item4" id="item4" class="ardoraDropInput" readonly> se construyeron utilizando avanzados <input type="text" name="item5" id="item5" class="ardoraDropInput" readonly> de  <input type="text" name="item6" id="item6" class="ardoraDropInput" readonly>,  Geografia y Astronomía para la <input type="text" name="item7" id="item7" class="ardoraDropInput" readonly> de las estructuras monumentales, <input type="text" name="item8" id="item8" class="ardoraDropInput" readonly> de planos, calcular la resistencia de los <input type="text" name="item9" id="item9" class="ardoraDropInput" readonly>, <input type="text" name="item10" id="item10" class="ardoraDropInput" readonly> de los bloques.</p>','<img class="imaLeft" src="Egipto04_resources/media/astronomiaEgipto.jpg" alt="Ima"  align="left"><p>ASTRONOMÍA: Diseñaron un <input type="text" name="item11" id="item11" class="ardoraDropInput" readonly> de 12 meses con 30 dias c/u + 5 días para <input type="text" name="item12" id="item12" class="ardoraDropInput" readonly> el ciclo solar </p><p> RELIGION: desarrollaron un sistema de <input type="text" name="item13" id="item13" class="ardoraDropInput" readonly> basados en la vida después de la <input type="text" name="item14" id="item14" class="ardoraDropInput" readonly>, lo que obligó a los <input type="text" name="item15" id="item15" class="ardoraDropInput" readonly> a conservar los cadáveres, para ello los convirtieron en <input type="text" name="item16" id="item16" class="ardoraDropInput" readonly>., </p><p> <input type="text" name="item17" id="item17" class="ardoraDropInput" readonly>: se dió mediante el sistema de <input type="text" name="item18" id="item18" class="ardoraDropInput" readonly>. Con ellos plasmaban todos sus <input type="text" name="item19" id="item19" class="ardoraDropInput" readonly> y creencias.</p>','<img class="imaLeft" src="Egipto04_resources/media/esculturaEgipto01.jpg" alt="Ima"  align="left"><p>En el ARTE egipcio se destacaron la <input type="text" name="item20" id="item20" class="ardoraDropInput" readonly> que estaba ligada a la religion y <input type="text" name="item21" id="item21" class="ardoraDropInput" readonly>. Elaboraban representaciones de <input type="text" name="item22" id="item22" class="ardoraDropInput" readonly>, del faraon y su familia. La <input type="text" name="item23" id="item23" class="ardoraDropInput" readonly> mostraba la vida diaria </p><p>  </p><p> En el ARTE distinguimos manifestaciones: </p><p> ARQUITECTÓNICAS. De tamaño <input type="text" name="item24" id="item24" class="ardoraDropInput" readonly>,  </p><p> ESCULTÓRICAS. Con finalidad religiosa y <input type="text" name="item25" id="item25" class="ardoraDropInput" readonly> </p><p> PICTÓRICAS. Con el objetivo de rendir culto a los <input type="text" name="item26" id="item26" class="ardoraDropInput" readonly> o simplemente <input type="text" name="item27" id="item27" class="ardoraDropInput" readonly></p>','<img class="imaLeft" src="Egipto04_resources/media/medicinaEgipto.jpg" alt="Ima"  align="left"><p>La CULTURA egipcia fue muy importante para la <input type="text" name="item28" id="item28" class="ardoraDropInput" readonly>:  </p><p> obras <input type="text" name="item29" id="item29" class="ardoraDropInput" readonly> (Libro de los Muertos), literarias (Sinuhé), científicas, técnicas...  </p><p> Además, su <input type="text" name="item30" id="item30" class="ardoraDropInput" readonly> era muy parecido al actual (dividido en tres <input type="text" name="item31" id="item31" class="ardoraDropInput" readonly>: inundación, siembra y cosecha),  </p><p> conocían las operaciones <input type="text" name="item32" id="item32" class="ardoraDropInput" readonly> elementales y  </p><p> avanzaron mucho en las prácticas <input type="text" name="item33" id="item33" class="ardoraDropInput" readonly> como <input type="text" name="item34" id="item34" class="ardoraDropInput" readonly> y tratamientos para muchas <input type="text" name="item35" id="item35" class="ardoraDropInput" readonly>.</p>'];
+var answers=["materiales","creencias","religiosas","sacerdores","construcción","calendario","monumentales","estado","funeraria","momias","muerte","cirugía","completar","decorativo","piràmides","dioses","conocimientos","tamaño","estaciones","estructuras","Escultura","matemáticas","enfermedades","Calendario","ESCRITURA","trazado","dioses","médicas","dioses","pintura","colosal","posteridad","conocimientos","Matematicas","jerogíficos"];
+var a=["OQ","MTM","Mjk","MTU","Nw","MzA","MQ","MjE","MjU","MTY","MTQ","MzQ","MTI","Mjc","Mw","Mg","MTk","MTA","MzE","NA","MjA","MzI","MzU","MTE","MTc","OA","MjI","MzM","MjY","MjM","MjQ","Mjg","NQ","Ng","MTg"];
+var itemCorr=["0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0"];
+var itemHelp=["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""];
+var animationX=[]; animationY=[]; animationPosX=[]; animationPosY=[]; animationLetter=[];
+var wordsGame="RWdpcHRvMDQ"; wordsStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
+function giveZindex(typeElement){var valueZindex=0; capas=document.getElementsByTagName(typeElement);
+for (i=0;i<capas.length;i++){if (parseInt($(capas[i]).css("z-index"),10)>valueZindex){valueZindex=parseInt($(capas[i]).css("z-index"),10);}}return valueZindex;}
+colorText="#000000";colorButton="#259AE0";colorBack="#FFFFFF";colorSele="#72AAF6";goURLNext=true;goURLRepeat=true;
+fMenssage="Verdana, Geneva, sans-serif";fActi="Verdana, Geneva, sans-serif";fEnun="Verdana, Geneva, sans-serif";

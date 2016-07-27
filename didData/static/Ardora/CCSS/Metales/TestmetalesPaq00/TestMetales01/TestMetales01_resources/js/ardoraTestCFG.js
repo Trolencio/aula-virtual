@@ -1,0 +1,61 @@
+//Creado con Ardora - www.webardora.net
+//bajo licencia Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)
+//para otros usos contacte con el autor
+var timeAct=360; timeIni=360; timeBon=0;
+var successes=0; successesMax=25; attempts=0; attemptsMax=1;
+var score=0; scoreMax=25; scoreInc=1; scoreDec=1
+var typeGame=0;
+var tiTime=false;
+var tiTimeType=0;
+var tiButtonTime=false;
+var textButtonTime="Comenzar";
+var tiSuccesses=true;
+var tiAttempts=false;
+var tiScore=true;
+var startTime;
+var colorBack="#FFFDFD"; colorButton="#91962F"; colorText="#000000"; colorSele="#FF8000";
+var goURLNext=false; goURLRepeat=false;tiAval=false;
+var scoOk=0; scoWrong=0; scoOkDo=0; scoWrongDo=0; scoMessage=""; scoPtos=10;
+var fMenssage="Verdana, Geneva, sans-serif";
+var fActi="Verdana, Geneva, sans-serif";
+var fResp="Verdana, Geneva, sans-serif";
+var fEnun="Verdana, Geneva, sans-serif";
+var timeOnMessage=2; messageOk="Actividad Finalizada!!!"; messageTime="Tiempo Fuera"; messageError="Intenta de Nuevo"; messageErrorG="Intenta de Nuevo"; messageAttempts="Intentos Agotados"; isShowMessage=false;
+var urlOk=""; urlTime=""; urlError=""; urlAttempts="";
+var goURLOk="_blank"; goURLTime="_blank"; goURLAttempts="_blank"; goURLError="_blank"; 
+borderOk="#008000"; borderTime="#FF0000";borderError="#FF0000"; borderAttempts="#FF0000";
+var wordsGame="VGVzdE1ldGFsZXMwMQ"; wordsStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
+function giveZindex(typeElement){var valueZindex=0; capas=document.getElementsByTagName(typeElement);
+for (i=0;i<capas.length;i++){if (parseInt($(capas[i]).css("z-index"),10)>valueZindex){valueZindex=parseInt($(capas[i]).css("z-index"),10);}}return valueZindex;}
+var tags=["El uso de los metales nace a partir del 5.000 A.C en la Península de","De la Península de Anatolia se difunde a","Pero Mesopotamia y Egipto carecen de yacimientos minerales, por tanto se inicia un comercio de metales a través del Mediterráneo, en busca de","Este comercio de metales permite la difusión de sus conocimientos de","La difusión de los nuevos conocimientos de metalurgia permite el desarrollo cultural de los pueblos que comerciarán con","El hombre nesecitó de elementos fuertes y resistentes que le permitieran una mejor confección de sus utensilios y armas. Esto lo consiguión con el desarrollo de la","El desarrollo de la metalurgia  comenzó con el","El cobre era demasiado blando, por lo que más tarde fue sustituido por el","El bronce es una mezcla o aleación de","Finalmente, se descubrieron las propiedades del","El hierro acabó convirtiéndose en el más utilizado para fabricar todo tipo de","Las principales actividades económicas siguieron siendo","La utilización de herramientas hechas con metales (azadas, hoces, arados) y la mejora de las técnicas agrícolas hicieron el trabajo más eficiente, permitieron el aumento de la producción y de la población y el desarrollo del","Al creciente desarrollo económico contribuyó decisivamente un importante invento","Las pequeñas aldeas neolíticas se transformaron en poblados de mayor tamaño rodeados de empalizadas o murallas para protegerse de posibles","El aumento de la población y las nuevas técnicas llevaron a una mayor especialización en el trabajo y a la aparición de diferencias sociales entre quienes podían vivir sin trabajar y quienes debían hacerlo para","También en la Edad de los Metales aparecieron las primeras formas de organización política~","La influencia religiosa y el poder militar sentaron las bases del origen del poder de los primeros","La principal manifestación artística de la Edad de los Metales fueron los llamados","Megalito significa","piedra hincada en el suelo, con una función conmemorativa o territorial~","varias piedras verticales sostienen otra horizontal, como sepulcro colectivo","círculos concéntricos de piedras, como lugares de culto","variedad del dolmen con un pasillo que antecede a la cámara propiamente dicha, y con la misma función","Los monumentos megalíticos fueron construcciones  formadas por grandes bloques de piedra que fueron utilizadas como santuarios religiosos y"];
+var answers1=["MUFuYXRvbGlh","MEdyZWNpYQ","MEl0YWxpYQ"];
+var answers2=["MU1lc29wb3RhbWlhIHkgRWdpcHRv","MEl0YWxpYSB5IEdyZWNpYQ","MEVzcGHxYQ"];
+var answers3=["MUNvYnJlIHkgRXN0YfFv","ME9ybyB5IFBsYXRh","MERpYW1hbnRlcw"];
+var answers4=["MU1ldGFsdXJnaWE","MEFncmljdWx0dXJh","MEdhbmFkZXLtYQ"];
+var answers5=["MU1lc29wb3RhbWlhIHkgRWdpcHRv","MEl0YWxpYSB5IEdyZWNpYQ"];
+var answers6=["MU1ldGFsdXJnaWE","MEFncmljdWx0dXJh","MEdhbmFkZXLtYQ"];
+var answers7=["MUNvYnJl","MEhpZXJybw","MEJyb25jZQ"];
+var answers8=["MUJyb25jZQ","MEhpZXJybw"];
+var answers9=["MWNvYnJlIHkgZXN0YfFv","MG9ybyB5IGNvYnJl","MHBsYXRhIHkgZXN0YfFv"];
+var answers10=["MUhpZXJybw","MEVzdGHxbw","MENvYnJl"];
+var answers11=["MUhlcnJhbWllbnRhcw","MFZlc3R1YXJpbw","MEFkb3Jub3M"];
+var answers12=["MWxhIGFncmljdWx0dXJhIHkgbGEgZ2FuYWRlcu1h","MGxhIGNhemEgeSBsYSBwZXNjYQ"];
+var answers13=["MWNvbWVyY2lv","MGdvYmllcm5v"];
+var answers14=["MWxhIHJ1ZWRh","MGVsIGZ1ZWdv"];
+var answers15=["MUVuZW1pZ29z","MERlc2FzdHJlcyBOYXR1cmFsZXM"];
+var answers16=["MXNvYnJldml2aXI","MGdvYmVybmFy"];
+var answers17=["MVZlcmRhZGVybw","MEZhbHNv"];
+var answers18=["MWdvYmVybmFudGVz","MGNvbWVyY2lhbnRlcw","MHNhY2VyZG90ZXM"];
+var answers19=["MU1vbnVtZW50b3MgTWVnYWztdGljb3M","MFBpbnR1cmFzIGFsIE9sZW8","MFBpbnR1cmFzIFJ1cGVzdHJlcw"];
+var answers20=["MVBpZWRyYSBFbm9ybWU","MFBvdmVuaWVudGUgZGVsIEVzcGFjaW8"];
+var answers21=["MU1FTkhJUg","MENST01MRUNI","MERPTE1FTg"];
+var answers22=["MURPTE1FTg","ME1FTkhJUg","MENST01MRUNI"];
+var answers23=["MUNS001MRUNI","ME1FTkhJUg"];
+var answers24=["MVNFUFVMQ1JPIERFIENPUlJFRE9S","ME1FTkhJUg"];
+var answers25=["MXR1bWJhcyBjb2xlY3RpdmFz","MGx1Z2FyZXMgZGUgcmVjcmVhY2nzbg"];
+var ans=[answers1,answers2,answers3,answers4,answers5,answers6,answers7,answers8,answers9,answers10,answers11,answers12,answers13,answers14,answers15,answers16,answers17,answers18,answers19,answers20,answers21,answers22,answers23,answers24,answers25];
+var err=["","","","","","","","","","","","","","","","","","","","","","","","",""];
+var ima=["catalhuyuc01.jpg","dondenacieronmapa01.jpg","TrabajoMetal00.jpg","metalurgia06.jpg","dondenacieronmapa.jpg","armas00.jpg","cobre00.jpg","bronce02.jpg","metalurgia06.jpg","hierro04.jpg","herramientas00.jpg","agricultura.jpg","comercio00.jpg","rueda00.jpg","civiliz.jpg","poblados.jpg","civiliz01.jpg","EdadMetal03.jpg","dolmen00.jpg","menhir02.jpg","menhir01.jpg","dolmen.jpg","cromlech01.jpg","sepulcrodecorredor00.jpg","enterramientos.jpg"];
+var indexTag=0; actualAnswers=[]; dirMedia="TestMetales01_resources/media/";
+colorText="#000000";colorButton="#259AE0";colorBack="#FFFFFF";colorSele="#72AAF6";goURLNext=true;goURLRepeat=true;
+fMenssage="Verdana, Geneva, sans-serif";fActi="Verdana, Geneva, sans-serif";fEnun="Verdana, Geneva, sans-serif";

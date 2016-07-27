@@ -12,8 +12,8 @@
         
         <div > <!-- Aqui va la lista de Actividades por Tema, luego el Tab -->
             <div class="list-group">
-            {% for actividad in Actividades %}
-                {% with idActividad=actividad.identificacion %} 
+            {% for actividad in Actividades.iterator %}
+                {% with idActividad=actividad.id %} 
                     {% if actividad.idTipoActividad.identificacion == 1 %}
                         <a class="list-group-item" href="{% url 'didData.views.detalleActividadPython' pk=actividad.id %}">
                         <i class="fa fa-mortar-board fa-fw" aria-hidden="true"></i>&nbsp;{{ actividad.identificacion }} -- {{ actividad.nombre }} --- Tipo : {{ actividad.idTipoActividad.nombre }}</a>

@@ -1,0 +1,61 @@
+//Creado con Ardora - www.webardora.net
+//bajo licencia Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)
+//para otros usos contacte con el autor
+var timeAct=360; timeIni=360; timeBon=0;
+var successes=0; successesMax=25; attempts=0; attemptsMax=1;
+var score=0; scoreMax=25; scoreInc=1; scoreDec=1
+var typeGame=0;
+var tiTime=false;
+var tiTimeType=0;
+var tiButtonTime=false;
+var textButtonTime="Comenzar";
+var tiSuccesses=true;
+var tiAttempts=false;
+var tiScore=true;
+var startTime;
+var colorBack="#FFFDFD"; colorButton="#91962F"; colorText="#000000"; colorSele="#FF8000";
+var goURLNext=false; goURLRepeat=false;tiAval=false;
+var scoOk=0; scoWrong=0; scoOkDo=0; scoWrongDo=0; scoMessage=""; scoPtos=10;
+var fMenssage="Verdana, Geneva, sans-serif";
+var fActi="Verdana, Geneva, sans-serif";
+var fResp="Verdana, Geneva, sans-serif";
+var fEnun="Verdana, Geneva, sans-serif";
+var timeOnMessage=2; messageOk="Actividad Finalizada!!!"; messageTime="Tiempo Fuera"; messageError="Intenta de Nuevo"; messageErrorG="Intenta de Nuevo"; messageAttempts="Intentos Agotados"; isShowMessage=false;
+var urlOk=""; urlTime=""; urlError=""; urlAttempts="";
+var goURLOk="_blank"; goURLTime="_blank"; goURLAttempts="_blank"; goURLError="_blank"; 
+borderOk="#008000"; borderTime="#FF0000";borderError="#FF0000"; borderAttempts="#FF0000";
+var wordsGame="VGVzdE1ldGFsZXMwMg"; wordsStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
+function giveZindex(typeElement){var valueZindex=0; capas=document.getElementsByTagName(typeElement);
+for (i=0;i<capas.length;i++){if (parseInt($(capas[i]).css("z-index"),10)>valueZindex){valueZindex=parseInt($(capas[i]).css("z-index"),10);}}return valueZindex;}
+var tags=["El desarrollo de la metalurgia  comenzó con el","El cobre era demasiado blando, por lo que más tarde fue sustituido por el","Finalmente, se descubrieron las propiedades del","El hombre prehistórico aprendió a usar el cobre el cual era fácil de obtener debido a su presencia en la superficie terrestre mezclado con otros","El hombre aprende el proceso de la metalurgia, a través de la experimentación o de la casualidad, caída de cobre al","El cobre, junto con el oro y la plata, es de los primeros metales utilizados en la","En la Edad de cobre se da la invención de la","Como consecuencia de la invención de la metalurgia, se da un desarrollo importante en la","Como consecuencia de la invención de la metalurgia, se da un desarrollo importante en la","En la Edad de cobre se da un importante desarrollo de la","El bronce es resultado de la aleación de cobre (90%) + estaño (10%) aproximadamente , obteniéndose un metal mas duro y resistente que el","En la Edad de Bronce Se dió la aparición del primer","En la Edad de Bronce Se dió la aparición de la primera autoridad","En la Edad de Bronce la organización social se hizo hecho más compleja que en los poblados","La Edad de Bronce tuvo como consecuencia la desaparición de la","es un área de intenso comercio del bronce","La edad de Hierro es el estadio en el desarrollo de una civilización en el que se descubre y populariza el uso del hierro como material para fabricar ~","El hierro le permitió al hombre dominar mejor el medio ambiente y ampliar su horizonte","Hacia el 1300 A.C, los primeros en trabajar el hierro en abundancia fueron los","Los hititas exportaban el hierroa","En Grecia el hierro entró hacia el 1200 A.C. con los ~","El hierro era un metal mucho más duro y duradero que el bronce, pero también necesita unas temperaturas mucho mayores para su fundición, esto supuso un cambio tecnológico consistente en la generalización de la metalurgia para construir los","La edad de los metales convive con los primeros pasos de la historia: así mientras en Mesopotamia ya había manifestaciones escritas, a Europa occidental estaban llegando las innovaciones neolíticas de la","La humanidad no ha pasado de una edad a otra en el mismo lugar y la misma","Los monumentos megalíticos fueron construcciones  formadas por grandes bloques de piedra que fueron utilizadas como santuarios religiosos y"];
+var answers1=["MUNvYnJl","MEJyb25jZQ","MEhpZXJybw"];
+var answers2=["MUJyb25jZQ","MEhpZXJybw","MEVzdGHxbw"];
+var answers3=["MUhpZXJybw","ME9ybyB5IFBsYXRh","MERpYW1hbnRlcw"];
+var answers4=["MU1pbmVyYWxlcw","MEFsaW1lbnRvcw"];
+var answers5=["MUZ1ZWdv","MFByZWNpcGljaW8"];
+var answers6=["MVByZWhpc3Rvcmlh","MFBhbGVvbO10aWNv","MEdhbmFkZXLtYQ"];
+var answers7=["MU1ldGFsdXJnaWE","MEFncmljdWx0dXJh","MEdhbmFkZXLtYQ"];
+var answers8=["MUFncmljdWx0dXJh","MFBvbO10aWNh"];
+var answers9=["MUdhbmFkZXLtYQ","MEFkbWluaXN0cmFjafNu"];
+var answers10=["MU1pbmVy7WE","MFBvbO10aWNh","MFJlbGlnafNu"];
+var answers11=["MUNvYnJl","MEhpZXJybw"];
+var answers12=["MUVzdGFkbw","MERpb3MgRWdpcGNpbw"];
+var answers13=["MVBvbO10aWNh","MEFydO1zdGljYQ"];
+var answers14=["MU5lb2ztdGljb3M","MEVnaXBjaW9z"];
+var answers15=["MUlndWFsZGFkIFNvY2lhbA","MEVjb25vbe1h"];
+var answers16=["MU1hciBFZ2Vv","ME1hciBOZWdybw"];
+var answers17=["MUFybWFzIHkgSGVycmFtaWVudGFz","MEVzdGF0dWlsbGFz"];
+var answers18=["MUN1bHR1cmFs","MFJlbGlnaW9zbw"];
+var answers19=["MUhpdGl0YXM","MEdyaWVnb3M"];
+var answers20=["MUVnaXB0byB5IEFzaXJpYQ","MENoaW5h"];
+var answers21=["MWRvcmlvcw","MGhpdGl0YXM"];
+var answers22=["MXV0ZW5zaWxpb3MgZGUgdHJhYmFqbw","MG1lZ2FsaXRvcw"];
+var answers23=["MW1ldGFsdXJnaWE","MHJlbGlnafNu"];
+var answers24=["Melwb2Nh","MGN1bHR1cmE"];
+var answers25=["MXR1bWJhcyBjb2xlY3RpdmFz","MGx1Z2FyZXMgZGUgcmVjcmVhY2nzbg"];
+var ans=[answers1,answers2,answers3,answers4,answers5,answers6,answers7,answers8,answers9,answers10,answers11,answers12,answers13,answers14,answers15,answers16,answers17,answers18,answers19,answers20,answers21,answers22,answers23,answers24,answers25];
+var err=["","","","","","","","","","","","","","","","","","","","","","","","",""];
+var ima=["metalurgia07.jpg","metalurgia08.jpg","metalurgia06.jpg","fundicion00.jpg","fundicion00.jpg","cobre.jpg","DeDondeSale.jpg","agricultura.jpg","ganaderia01.jpg","metalutgia04.jpg","bronce00.jpg","metalurgia04.jpg","EdadMetal03.jpg","EdadMetal01.jpg","mujeres.jpg","dondenacieronmapa01.jpg","herramientas00.jpg","metaturgia01.jpg","metalurgia03.jpg","EdadMetal00.jpg","ganaderia.jpg","herramientas00.jpg","armas.jpg","ceramica.jpg","enterramientos.jpg"];
+var indexTag=0; actualAnswers=[]; dirMedia="TestMetales02_resources/media/";
+colorText="#000000";colorButton="#259AE0";colorBack="#FFFFFF";colorSele="#72AAF6";goURLNext=true;goURLRepeat=true;
+fMenssage="Verdana, Geneva, sans-serif";fActi="Verdana, Geneva, sans-serif";fEnun="Verdana, Geneva, sans-serif";

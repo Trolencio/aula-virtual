@@ -1,0 +1,52 @@
+/* Created by ARDORA - http://www.webardora.net */
+* { margin: 0; padding: 0;}
+body {
+	margin: 5px 0;
+background-image:url("images/none");
+background-position:center;
+background-repeat:repeat;
+background-color:#FFFFFF;;
+}
+body, th, td {
+font-family:Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: #666666;
+}
+h1, h2, h3 {
+font-family:Arial, Helvetica, sans-serif;
+	color: #72AAF6;
+	font-size:18px;
+}
+h2 {color: #050000;font-size: 12px;}
+p, ul {margin-top: 1.5em;line-height: 1.8em;font-size: 1.1em;}
+ul, ol {margin-left: 3em;}
+a { text-decoration: none; border-bottom: 1px #E9D14E; color:#72AAF6;}
+h1 a, h2 a, h3 a {border: none;text-decoration: none;color: #626456;}
+h1 a:hover, h2 a:hover, h3 a:hover {background: none; border-bottom: 1px dotted #E9D14E; color: #B8D03B;}
+#cabeceira {width: 95%;height: 35px;margin: 0 auto;}
+#menuPrincipal {float: left;padding-bottom:2px;}
+#menuPrincipal ul {margin: 0;padding: 0;list-style: none;line-height: normal;}
+#menuPrincipal li {float: left;}
+#menuPrincipal a {display: block;float: left; height: 25px; margin-right: 1px; padding: 10px 20px 0 20px; background:#259AE0; text-decoration: none; font-size: 1.1em; font-weight: bold; color:#FFFFFF;}
+#menuPrincipal a:hover { background:#72AAF6; color:#FFFFFF;}
+#titulo {width: 95%;margin: 0 auto;height: 50px;background:#72AAF6; border: 1px solid #72AAF6;}
+#titulo h1 {float: left;margin: 0;font-size:24px;color:#050000; padding: 5px; width:75%;
+text-shadow: 4px 4px 2px rgba(150, 150, 150, 1);
+}
+#titulo h2 { float: right;margin: 0;padding: 10px 5px 5px 5px; font-size:12px;}
+#paxina { width: 95%; margin: 0 auto; padding: 5px 0; background: #FFFFFF; border: 1px solid #72AAF6; border-top: none;}
+#areaContido { float: left; width: 80%; padding: 0 5px 0 5px; margin: 0; font-size: .8em; color: #CFCFCF;}
+#botons { border-top-color:#ECECEC; border-top-style:dashed; border-top-width:thin; width:95%;}
+#enunciadoAct{ font-weight:normal; text-align:justify; width:95%;}
+#contidoAct{padding:0px; margin:0px;}
+#menu{ border-left-color:#ECECEC;border-left-style:dashed;border-left-width:thin;
+float: left;width: 14%;float:right;padding: 5px 0 0 11px;}
+#menu ul {margin: 0;padding: 0;list-style: none;}
+#menu li li {padding: 5px;margin: 0;font-size: .8em;}
+#menu li a {color:#72AAF6;border: none;font-size:10px; font-style:normal;}
+#menu li a:hover {border: none; background:#72AAF6; color: #FFFFFF;
+font-style:inherit;font-size:1opx;text-transform:uppercase;}
+#menu li h2{
+text-shadow: 4px 4px 2px rgba(150, 150, 150, 1);
+}
+object{overflow:hidden;}

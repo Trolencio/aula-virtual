@@ -1,0 +1,61 @@
+//Creado con Ardora - www.webardora.net
+//bajo licencia Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)
+//para otros usos contacte con el autor
+var timeAct=360; timeIni=360; timeBon=0;
+var successes=0; successesMax=25; attempts=0; attemptsMax=1;
+var score=0; scoreMax=25; scoreInc=1; scoreDec=1
+var typeGame=0;
+var tiTime=false;
+var tiTimeType=0;
+var tiButtonTime=false;
+var textButtonTime="Comenzar";
+var tiSuccesses=true;
+var tiAttempts=false;
+var tiScore=true;
+var startTime;
+var colorBack="#FFFDFD"; colorButton="#91962F"; colorText="#000000"; colorSele="#FF8000";
+var goURLNext=false; goURLRepeat=false;tiAval=false;
+var scoOk=0; scoWrong=0; scoOkDo=0; scoWrongDo=0; scoMessage=""; scoPtos=10;
+var fMenssage="Verdana, Geneva, sans-serif";
+var fActi="Verdana, Geneva, sans-serif";
+var fResp="Verdana, Geneva, sans-serif";
+var fEnun="Verdana, Geneva, sans-serif";
+var timeOnMessage=2; messageOk="Felicidades!!!"; messageTime=""; messageError="Error..."; messageErrorG="Error..."; messageAttempts=""; isShowMessage=false;
+var urlOk=""; urlTime=""; urlError=""; urlAttempts="";
+var goURLOk="_blank"; goURLTime="_blank"; goURLAttempts="_blank"; goURLError="_blank"; 
+borderOk="#008000"; borderTime="#FF0000";borderError="#FF0000"; borderAttempts="#FF0000";
+var wordsGame="R2xvc2FyaW8wMg"; wordsStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
+function giveZindex(typeElement){var valueZindex=0; capas=document.getElementsByTagName(typeElement);
+for (i=0;i<capas.length;i++){if (parseInt($(capas[i]).css("z-index"),10)>valueZindex){valueZindex=parseInt($(capas[i]).css("z-index"),10);}}return valueZindex;}
+var tags=["En la historia del arte, estudio del contenido en las artes visuales.","En la mitología egipcia, diosa de la fertilidad y de la maternidad. Antiguas historias describen a Isis como poseedora de una gran destreza mágica, y se la representaba con forma humana aunque frecuentemente se la describía provista de cuernos de vaca.","Escritos realizados con signos que son figuras. o sea, objetos reconocibles.","Que se puede modelar o labrar fácilmente.","(del latín, anima, 'aliento' o 'alma') Creencia en seres espirituales.","(del griego mega \"grande\" y lito \"piedra\"). Monumento prehistórico construido con grandes piedras solas o apoyadas unas en otras.","En la mitología egipcia, dios de los muertos. Era considerado el inventor del embalsamamiento, el guardián de las tumbas y un juez de los muertos. Los egipcios creían que en el juicio de las almas él contrapesaba el corazón de los muertos con la pluma de la verdad. En el arte se le representa con cabeza de chacal. Anubis era a veces identificado con Hermes en la mitología griega.","(del griego meso \"en medio de\" y potamos \"río\") Región del Asia Menor situada entre los ríos Tigris y Éufrates.","Arte o industria cuyo objeto es extraer los metales de los minerales que los contienen.","Historia fabulosa de los héroes y los dioses de la antigüedad.","Cadáver que, naturalmente o por haber sido preparado al efecto, se deseca con el transcurso del tiempo sin entrar en descomposición.","Aleación de cobre y estaño, más resistente que ambos.","(del griego mono \"uno\" y cromo \"color\")Uso de un sólo color.","(del griego neo \"nuevo\" y lito \"piedra\").Etapa de la Prehistoria posterior al paleolítico y que se caracteriza por el uso de herramientas realizadas con piedra pulida.","Se dice de las personas o pueblos que no tienen un lugar fijo de residencia y se desplazan de un lugar a otro, normalmente en busca de alimentos.","Lugar con agua y vegetación en un desierto.","Una de las principales divinidades en la mitología egipcia. Originalmente el dios local de Abidos y Busiris, Osiris, que representaba a las fuerzas masculinas productivas de la naturaleza, llegó a identificarse con la puesta del sol. Osiris vivió en el submundo como soberano de los muertos pero, gracias a Horus, se lo consideraba también como la fuente de la vida renovada.","(del griego paleo \"antiguo\" y lito \"piedra\").Es la primera etapa de la Prehistoria, que se caracteriza por el uso de herramientas construídas con piedra tallada.","Es una técnica de construcción de herramientas consistente en pulir la piedra con materiales más duros para obtener una forma determinada.","Se trata de un técnica primitiva de construcción de herramientas consistente en golpear la piedra hasta darle la forma requerida.","(del griego poli \"muchos\" y cromo \"color\") Utilización de varios colores.","(del griego poli \"muchos\" y teo \"dios\") Creencia en la existencia de muchos dioses o seres divinos.","Es la etapa de la Historia que va desde el origen del hombre hasta el descubrimiento de la escritura.","Se denomina así a la Ciencia que estudia la evolución de la humanidad y los acontecimientos acaecidos en el pasado.También se denomina Historia al periodo de tiempo transcurrido entre la aparición de la escritura hasta nuestros días.","Que no es sagrado ni sirve a usos sagrados, sino puramente secular."];
+var answers1=["MUljb25vZ3JhZu1h","ME1ldGFsdXJnaWE"];
+var answers2=["MUlzaXM","ME9zaXJpcw"];
+var answers3=["MUplcm9n7WZpY29z","MElkZW9ncmFtYXM"];
+var answers4=["MU1hbGVhYmxl","MENvbmNyZXRv"];
+var answers5=["MUFuaW1pc21v","MFNlZGVudGFyaW8"];
+var answers6=["MU1lZ2Fs7XRpY28","MEFudHJvcG9mYWdv"];
+var answers7=["MUFudWJpcw","MFZlbnVz"];
+var answers8=["MU1lc29wb3RhbWlh","MENhdGFsIGh1eXVj"];
+var answers9=["MU1ldGFsdXJnaWE","MEFydGUgUnVwZXN0cmU"];
+var answers10=["MU1pdG9sb2ftYQ","MExlZ2Fkbw"];
+var answers11=["MU1vbWlh","MFpvbWJpZQ"];
+var answers12=["MUJyb25jZQ","MEhpZXJybw"];
+var answers13=["MU1vbm9jcm9t7WE","MFBvbGljcm9taWE"];
+var answers14=["MU5lb2xpdGljbw","MFBhbGVvbO10aWNv"];
+var answers15=["MU5vbWFkYQ","MFNlZGVudGFyaW8"];
+var answers16=["MU9hc2lz","MExhZGVyYQ"];
+var answers17=["MU9zaXJpcw","MElzaXM"];
+var answers18=["MVBhbGVvbGl0aWNv","ME5lb2xpdGljbw"];
+var answers19=["MVBpZWRyYSBQdWxpZGE","MFBpZWRyYSBUYWxsYWRh"];
+var answers20=["MVBpZWRyYSBUYWxsYWRh","MFBpZWRyYSBQdWxpZGE"];
+var answers21=["MVBvbGljcm9t7WE","ME1vbm9jcm9t7WE"];
+var answers22=["MVBvbGl0ZWlzbW8","ME1vbm90ZWlzbW8"];
+var answers23=["MVByZWhpc3Rvcmlh","MENyaXN0aWFuaXNtbw"];
+var answers24=["MUhpc3Rvcmlh","MEVkYWQgZGUgUGllZHJh"];
+var answers25=["MVByb2Zhbm8","MFBvbGl0ZWlzdGE"];
+var ans=[answers1,answers2,answers3,answers4,answers5,answers6,answers7,answers8,answers9,answers10,answers11,answers12,answers13,answers14,answers15,answers16,answers17,answers18,answers19,answers20,answers21,answers22,answers23,answers24,answers25];
+var err=["","","","","","","","","","","","","","","","","","","","","","","","",""];
+var ima=["escultura.jpg","isis.jpg","escrituraegipcia.jpg","cobre00.jpg","religion.jpg","menhir01.jpg","anubis.jpg","calendariolunar.jpg","metalurgia08.jpg","mitologia.jpg","momificacion.jpg","bronce01.jpg","prehistoriaetapas01.jpg","civiliz.jpg","cuevas.jpg","clima.jpg","osiris.jpg","artemobiliar.jpg","artemobiliar.jpg","cavver.jpg","pintura.jpg","mitologia.jpg","lineat.JPG","lineadetiempo02.jpg","profano.jpg"];
+var indexTag=0; actualAnswers=[]; dirMedia="Glosario02_resources/media/";
+colorText="#444444";colorButton="#276B9C";colorBack="#FFFFFF";colorSele="#5DB3F0";goURLNext=true;goURLRepeat=true;tiAval=true;
+fMenssage="Verdana, Geneva, sans-serif";fActi="Verdana, Geneva, sans-serif";fEnun="Verdana, Geneva, sans-serif";
