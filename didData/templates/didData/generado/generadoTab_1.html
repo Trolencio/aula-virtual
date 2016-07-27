@@ -1,0 +1,66 @@
+<html>
+<meta charset='latin-1'>
+<head>
+{% load staticfiles %}
+<link rel='stylesheet' href='http://yui.yahooapis.com/pure/0.6.0/pure-min.css'>    
+<link rel='stylesheet prefetch' href='http://fontawesome.io/assets/font-awesome/css/font-awesome.css'>
+<link rel='stylesheet' type='text/css' href='{% static 'css/pureCssSlidingTabs.css' %}' />
+<link rel='stylesheet' type='text/css' href='{% static 'css/singleSlider.css' %}' />
+<link rel='stylesheet' type='text/css' href='{% static 'cssttp/pureCssToolTip.css' %}' />
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
+</head>
+<body id='content'>
+	<div class='page-header'>
+		<div class='row'>
+			<div class='col-md-1'>
+			</div>
+			<div class='col-md-5'>
+				<div style='margin-left: 30px; color:#CC33CC;'><h1>Mapa Contextual de Los Seres Vivos</h1></div>
+<hr style='width: 95%; height: 1px;'><br>
+			</div>
+		</div>
+	</div>
+	<table style='width: 100%;' border='0' cellpadding='2' cellspacing='2'><tbody><TR>
+	 <td style='width: 500px; height: 600px ;'>
+	<div class='tabGroup'>
+		<input type='radio'  name='tabGroup1' id='rad1' class='tab1' checked='checked'/>
+		<input type='radio' name='tabGroup1' id='rad2' class='tab2' />
+		<div class='tablabels'>
+			<label for='rad1' title= 'Caracteristicas' class='fa fa-globe'></label>
+			<label for='rad2' title= 'Clasificacion' class='fa fa-no'></label>
+		</div>
+		<div class='btabcontent'></div>
+		<div class='tabcontent'>
+			<div class='tab1'>
+				<legend>Caracteristicas</legend>
+				<p >Caracter&iacute;sticas de los moneras</p><p>Caracter&iacute;sticas de los protistas</p><p>Caracter&iacute;sticas de los fungi</p><p>Caracter&iacute;sticas de los virus</p>
+			</div>
+			<div class='tab2'>
+				<legend>Clasificacion</legend>
+				<p >Clasificacion</p>
+			</div>
+		</div>
+	</div>
+	</td>
+	<td style='width: 450px; text-align: left; vertical-align: top; '>
+<div class='contenido'>
+	<div id='slider'>		<div style ='text-align: center;'><img style = 'width: 365;' src='http://www.monografias.com/trabajos94/clasificacion-seres-vivos/image004.png'><p>4 Clasificacion de los Seres Vivos</p></div>
+		<div style ='text-align: center;'><img style = 'width: 365;' src='http://www.monografias.com/trabajos94/clasificacion-seres-vivos/image001.png'><p>3 Clasificacion de los Seres Vivos</p></div>
+		<div style ='text-align: center;'><img style = 'width: 365;' src='https://i.ytimg.com/vi/k1cK8brb3I8/maxresdefault.jpg'><p>Clasificacion de los Seres Vivos</p></div>
+		<div style ='text-align: center;'><img style = 'width: 365;' src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Tree_of_Living_Organisms.PNG/250px-Tree_of_Living_Organisms.PNG'><p>El arbol de los organismos vivientes</p></div>
+	</div>
+</div>
+<script type='text/javascript'>
+$(function(){
+    $('#slider div:gt(0)').hide();
+    setInterval(function(){
+        $('#slider div:first-child').fadeOut(1000)
+        .next('div').fadeIn(500)
+        .end().appendTo('#slider');
+        }, 4000);})
+</script> 
+	</td>
+	</TR>
+	 </tbody></table>
+</body>
+</html>

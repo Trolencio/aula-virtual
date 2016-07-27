@@ -14,8 +14,13 @@
             <div class="list-group">
             {% for actividad in Actividades %}
                 {% with idActividad=actividad.identificacion %} 
-                 <a class="list-group-item" href="{% url 'didData.views.detalleActividadPython' pk=actividad.id %}">
-                 <i class="fa fa-mortar-board fa-fw" aria-hidden="true"></i>&nbsp;{{ actividad.identificacion }} -- {{ actividad.nombre }} --- Tipo : {{ actividad.idTipoActividad.nombre }}</a>
+                    {% if actividad.idTipoActividad.identificacion == 1 %}
+                        <a class="list-group-item" href="{% url 'didData.views.detalleActividadPython' pk=actividad.id %}">
+                        <i class="fa fa-mortar-board fa-fw" aria-hidden="true"></i>&nbsp;{{ actividad.identificacion }} -- {{ actividad.nombre }} --- Tipo : {{ actividad.idTipoActividad.nombre }}</a>
+                    {% elif actividad.idTipoActividad.identificacion == 2 %}
+                        <a class="list-group-item" href="{% static actividad.descripcion %}">
+                        <i class="fa fa-mortar-board fa-fw" aria-hidden="true"></i>&nbsp;{{ actividad.identificacion }} -- {{ actividad.nombre }} --- Tipo : {{ actividad.idTipoActividad.nombre }}</a>
+                    {% endif %}
                 {% endwith %}
             {% endfor %}    
             </div>
