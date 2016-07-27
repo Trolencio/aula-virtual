@@ -1,0 +1,17 @@
+{% extends 'didData/base.html' %}
+    {% load staticfiles %}
+    {% block content %}
+        <div class="header">
+            <h1>{{ Actividad.idTema.nombre }}</h1>
+            <h2>No hay Actividades para {{ Actividad.nombre }}</h2><!-- Aqui debe ir el tipo de actividad-->
+        </div>
+        <div class="content">
+            <br>
+            <p style= "text-align:right;">Materia : {{ Actividad.idTema.idMateria.descripcion }}</p>
+        </div> 
+        
+        <div > <!-- Aqui va la lista de Actividades por Tema, luego el Tab -->
+
+
+        </div>
+    {% endblock %}

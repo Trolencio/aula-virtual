@@ -53,7 +53,8 @@ def detalleActividadPython(request, pk):
     if actividadesDet:
         nombrearchivo = createFileVerticalTabs(actividadesDet, pk)
     else:
-        raise Http404("NO SE HA DEFINIDO DETALLE PARA ESTA ACTIVIDAD")    
+        return render(request, 'didData/enConstruccion.html', {'Actividad': estaactividad}) 
+        #raise Http404("NO SE HA DEFINIDO DETALLE PARA ESTA ACTIVIDAD")    
     
     #generar el archivo en aula-virtual
     #    '/home/trolencio/aula-virtual/didData/templates/didData/generado/generadoTab_'
