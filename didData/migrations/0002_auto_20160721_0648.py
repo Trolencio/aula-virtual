@@ -17,21 +17,21 @@ class Migration(migrations.Migration):
             name='id',
         ),
         migrations.RemoveField(
-            model_name='actividaddet',
+            model_name='ActividadDet',
             name='id',
         ),
         migrations.RemoveField(
-            model_name='mediainactividad',
+            model_name='MediaInActividad',
             name='id',
         ),
         migrations.AddField(
-            model_name='mediainactividad',
+            model_name='MediaInActividad',
             name='palabra',
             field=models.CharField(default=' ', max_length=100),
             preserve_default=False,
         ),
         migrations.AddField(
-            model_name='mediainactividad',
+            model_name='MediaInActividad',
             name='titulo',
             field=models.TextField(default=' '),
             preserve_default=False,
@@ -42,12 +42,12 @@ class Migration(migrations.Migration):
             field=models.IntegerField(primary_key=True, serialize=False),
         ),
         migrations.AlterField(
-            model_name='actividaddet',
+            model_name='ActividadDet',
             name='identificacion',
             field=models.IntegerField(primary_key=True, serialize=False),
         ),
         migrations.AlterField(
-            model_name='mediainactividad',
+            model_name='MediaInActividad',
             name='identificacion',
             field=models.IntegerField(primary_key=True, serialize=False),
         ),

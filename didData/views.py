@@ -5,8 +5,8 @@ from .models import Materia
 from .models import Tema
 from .models import TipoActividad
 from .models import Actividad
-from .models import actividadDet
-from .models import mediaInActividad
+from .models import ActividadDet
+from .models import MediaInActividad
 
 from .fileCreator import createFileVerticalTabs
 
@@ -53,16 +53,16 @@ def detalleActividadArdora(request, pk):
     estaactividad = get_object_or_404(Actividad, identificacion=pk) #objeto tipo Actividad identificacion = pk
     #actividades toma la lista de actividades del tema var_idTema, con su objeto Tema relacionado
 
-    actividadesDet = actividadDet.objects.filter(idActividad=estaactividad.identificacion)
-    #actividadArdoraDet = actividadDet.select_related('idActividad')
+    actividadesDet = ActividadDet.objects.filter(idActividad=estaactividad.identificacion)
+    #actividadArdoraDet = ActividadDet.select_related('idActividad')
     
     actividadArdoraDet = actividadesDet.select_related('idActividad')
     return render(request, 'didData/detalleActividadArdora.html', {'ActividadDet': actividadArdoraDet})
 
 def detalleActividadPython(request, pk):
-    estaactividad = get_object_or_404(Actividad, identificacion=pk) #objeto tipo Actividad identificacion = pk
+    estaactividad = get_object_or_404(Actividad, id=pk) #objeto tipo Actividad id = pk
     #actividades toma la lista de actividades del tema var_idTema, con su objeto Tema relacionado
-    actividadesDet = actividadDet.objects.filter(idActividad=estaactividad.identificacion).order_by('identificacion')
+    actividadesDet = ActividadDet.objects.filter(idActividad=estaactividad.id).order_by('identificacion')
 
     #generar el archivo local
     nombrearchivo = createFileVerticalTabs(actividadesDet, pk)

@@ -22,7 +22,7 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
-            name='actividadDet',
+            name='ActividadDet',
             fields=[
                 ('id', models.AutoField(primary_key=True, auto_created=True, serialize=False, verbose_name='ID')),
                 ('identificacion', models.IntegerField()),
@@ -50,7 +50,7 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
-            name='mediaInActividad',
+            name='MediaInActividad',
             fields=[
                 ('id', models.AutoField(primary_key=True, auto_created=True, serialize=False, verbose_name='ID')),
                 ('identificacion', models.IntegerField()),

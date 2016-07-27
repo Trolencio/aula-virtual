@@ -3,11 +3,11 @@ p = Actividad(idTema =100, idTipoActividad =1, identificacion=1001 ,nombre='Acti
 p.save()
 
 Agregar detalle de actividades a la actividad 1 del Tema 100 de tipo 1
-p = actividadDet(idActividad=1001, identificacion=10011 ,nombre='Caracterìsticas',descripcion='Caracteristicas', contenido=' ', mediaAsociado=' ', sonido=' ', imagen=' '. slider=' ',otroMedia=' '  ,activa=true)
+p = ActividadDet(idActividad=1001, identificacion=10011 ,nombre='Caracterìsticas',descripcion='Caracteristicas', contenido=' ', mediaAsociado=' ', sonido=' ', imagen=' '. slider=' ',otroMedia=' '  ,activa=true)
 p.save()
 
 Agregar palabras clave a la actividad 1 del Tema 100 de tipo 1
-p = mediaInActividad(idActividad=1001, identificacion=10011 ,nombre='Caracterìsticas', palabra='procariontes',tipo=' ',titulo='definicion de procarionte', contenido=' ',  imagen=' ', path=' ',extension=' '  ,activa=true)
+p = MediaInActividad(idActividad=1001, identificacion=10011 ,nombre='Caracterìsticas', palabra='procariontes',tipo=' ',titulo='definicion de procarionte', contenido=' ',  imagen=' ', path=' ',extension=' '  ,activa=true)
 p.save()
 
 http://celestia.albacete.org/imagenes/deriva/graficos/procario.jpg

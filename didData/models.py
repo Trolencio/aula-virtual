@@ -60,7 +60,7 @@ class Tema(models.Model):
 class Actividad(models.Model):
     idTema = models.ForeignKey(Tema)
     idTipoActividad = models.ForeignKey(TipoActividad)
-    identificacion = models.IntegerField(primary_key=True)
+    identificacion = models.IntegerField()
     nombre = models.CharField(max_length=200)
     descripcion = models.TextField()
     comentario = models.TextField()
@@ -74,9 +74,9 @@ class Actividad(models.Model):
         return self.nombre
     
 #Clase Detalle de Actividad
-class actividadDet(models.Model):
+class ActividadDet(models.Model):
     idActividad = models.ForeignKey(Actividad)
-    identificacion = models.IntegerField(primary_key=True)
+    identificacion = models.IntegerField()
     nombre = models.CharField(max_length=100)
     descripcion = models.TextField()
     contenido = models.TextField()
@@ -97,9 +97,10 @@ class actividadDet(models.Model):
         return self.nombre
     
 #Clase Meadia en Actividad
-class mediaInActividad(models.Model):
+class MediaInActividad(models.Model):
+    idTema = models.ForeignKey(Tema)
     idActividad = models.ForeignKey(Actividad)
-    identificacion = models.IntegerField(primary_key=True)
+    identificacion = models.IntegerField()
     nombre =models.CharField(max_length=100) #Titulo deltooltip
     palabra = models.CharField(max_length=100) #palabra asociada en actividad 
     tipo = models.CharField(max_length=100) #Tipo de ToolTip
@@ -116,3 +117,33 @@ class mediaInActividad(models.Model):
     
     def __str__(self):
         return self.nombre
+    
+    
+    #Clase slider
+class Slider(models.Model):
+    idActividad = models.ForeignKey(Actividad)
+    nombre = models.CharField(max_length=50)
+    descripcion = models.CharField(max_length=200)
+    activa = models.BooleanField()
+        
+    def activar(self):
+        self.activa = True,
+        self.save()    
+        
+    def __str__(self):
+        return self.nombre
+    
+class SliderDet(models.Model):
+    idSlider = models.ForeignKey(Slider)
+    orden = models.IntegerField() #orden de aparicion
+    imagen = models.CharField(max_length=200) #url completa para ubicar la imagen
+    titulo = models.CharField(max_length=50) #texto que se despliega si la imagen falla
+    leyenda = models.CharField(max_length=200) #leyenda de la imagen (para posterior implementacion)
+    activa = models.BooleanField()#para poder desactivarla
+    
+    def activar(self):
+        self.activa = True,
+        self.save()    
+        
+    def __str__(self):
+        return self.titulo    

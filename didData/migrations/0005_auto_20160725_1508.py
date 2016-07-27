@@ -13,7 +13,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.AlterField(
-            model_name='mediainactividad',
+            model_name='MediaInActividad',
             name='imagen',
             field=models.CharField(max_length=200),
         ),
