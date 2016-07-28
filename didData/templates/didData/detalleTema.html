@@ -16,17 +16,19 @@
                 {% with idActividad=actividad.id %} 
                     {% if actividad.idTipoActividad.identificacion == 1 %}
                         <a class="list-group-item" href="{% url 'didData.views.detalleActividadPython' pk=actividad.id %}">
-                        <i class="fa fa-mortar-board fa-fw" aria-hidden="true"></i>&nbsp;{{ actividad.identificacion }} -- {{ actividad.nombre }} --- Tipo : {{ actividad.idTipoActividad.nombre }}</a>
+                        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>&nbsp;{{ actividad.identificacion }} -- {{ actividad.nombre }} --- Tipo : {{ actividad.idTipoActividad.nombre }}</a>
                     {% elif actividad.idTipoActividad.identificacion == 2 %}
                         <a class="list-group-item" href="{% static actividad.descripcion %}">
-                        <i class="fa fa-mortar-board fa-fw" aria-hidden="true"></i>&nbsp;{{ actividad.identificacion }} -- {{ actividad.nombre }} --- Tipo : {{ actividad.idTipoActividad.nombre }}</a>
+                        <i class="fa fa-check fa-fw" aria-hidden="true"></i>&nbsp;{{ actividad.identificacion }} -- {{ actividad.nombre }} --- Tipo : {{ actividad.idTipoActividad.nombre }}</a>
                     {% endif %}
                 {% endwith %}
             {% endfor %}    
             </div>
+            <!--
             <div class="list-group">
                 <a class="list-group-item" href="/"><i class="fa fa-book fa-fw" aria-hidden="true"></i>&nbsp; Ayuda</a>
                 <a class="list-group-item" href="/admin"><i class="fa fa-cog fa-fw" aria-hidden="true"></i>&nbsp; Administrar</a>
             </div>
+            -->
         </div>
     {% endblock %}
